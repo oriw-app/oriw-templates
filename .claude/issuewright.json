@@ -1,0 +1,14 @@
+{
+  "mainBranch": "main",
+  "sourceGlobs": [],
+  "testGlobs": [
+    "templates/**/template.json"
+  ],
+  "docsGlobs": [
+    "*.md",
+    "templates/**"
+  ],
+  "domainDoc": "../oriw/docs/DOMAIN.md",
+  "quickCheck": "scripts/check",
+  "fullCheck": "scripts/check"
+}

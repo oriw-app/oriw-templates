@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Checks every template.json against template.schema.json (needs: pip install jsonschema).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+python3 - <<'PY'
+import json, pathlib, sys
+try:
+    from jsonschema import Draft202012Validator
+except ImportError:
+    print("Install jsonschema to check templates: pip install jsonschema"); sys.exit(1)
+v = Draft202012Validator(json.load(open("template.schema.json")))
+bad = 0
+for p in sorted(pathlib.Path("templates").glob("*/template.json")):
+    for e in v.iter_errors(json.load(open(p))):
+        print(f"{p}: {e.message}"); bad += 1
+print(f"{bad} problem(s)" if bad else "templates ok")
+sys.exit(1 if bad else 0)
+PY
