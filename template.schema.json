@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Oriw template description",
+  "type": "object",
+  "required": ["name", "description", "category", "author", "minOriwVersion"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {"type": "string", "maxLength": 40},
+    "description": {"type": "string", "maxLength": 140},
+    "category": {"enum": ["Meetings", "Planning", "Diagrams", "Research", "Strategy", "Education", "Fun"]},
+    "tags": {"type": "array", "items": {"type": "string", "maxLength": 20}, "maxItems": 6},
+    "author": {"type": "string"},
+    "minOriwVersion": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"}
+  }
+}

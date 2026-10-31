@@ -1,0 +1,8 @@
+{
+  "name": "Retrospective",
+  "description": "Went well, to improve and actions, with dot voting.",
+  "category": "Meetings",
+  "tags": ["agile", "retro", "team"],
+  "author": "oriw-app",
+  "minOriwVersion": "0.1.9"
+}
